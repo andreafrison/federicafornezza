@@ -1,0 +1,166 @@
+<?php
+/*
+ * Template Name: About
+ */
+
+get_header(); ?>
+
+
+<?php if( have_rows('hero') ): ?>
+    <?php while( have_rows('hero') ): the_row(); 
+        $title = get_sub_field('headline');
+        $image = get_sub_field('immagine'); ?>
+        <section id="about_hero">
+            <figure class="figure-bg">
+                <img class="img-cover" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>"  loading="lazy" />
+            </figure>
+            <section class="container">
+                <h1 class="hero-title wow fadeIn"><?php echo $title; ?></h1>
+            </section><!--container-->
+        </section><!--hero-->
+    <?php endwhile; ?>
+<?php endif; ?>
+
+
+<?php if( have_rows('banner') ): ?>
+    <?php while( have_rows('banner') ): the_row(); 
+        $title = get_sub_field('titolo');
+        $image = get_sub_field('immagine');
+		if( !empty($image) ): ?>
+			<section class="banner">
+				<figure class="figure-bg">
+					<img class="img-cover" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>"  loading="lazy" />
+				</figure>
+				<section class="container">
+					<h1 class="title wow fadeIn"><?php echo $title; ?></h1>
+				</section><!--container-->
+			</section><!--banner-->
+		<?php endif; ?>
+    <?php endwhile; ?>
+<?php endif; ?>
+
+<?php if( have_rows('sezione_2') ): ?>
+    <?php while( have_rows('sezione_2') ): the_row(); 
+        $title = get_sub_field('titolo');
+        $text = get_sub_field('testo');
+        $link = get_sub_field('link');
+        $image = get_sub_field('immagine');
+        $image_bg = get_sub_field('immagine_bg'); ?>
+        <section class="section section-dark" id="front_2">
+            <figure class="figure figure-bg">
+                <img class="img-cover" src="<?php echo esc_url($image_bg['url']); ?>" alt="<?php echo esc_attr($image_bg['alt']); ?>" loading="lazy" />
+            </figure>
+            <section class="container">
+                <section class="row align-items-center gy-5">
+                    <section class="col-md-6 col-lg-5 mx-auto">
+                        <h1 class="title wow fadeIn"><?php echo $title; ?></h1>
+                        <div class="text wow fadeIn"><?php echo $text; ?></div>
+                        <?php 
+                        if( $link ): 
+                            $link_url = $link['url'];
+                            $link_title = $link['title'];
+                            $link_target = $link['target'] ? $link['target'] : '_self'; ?>
+                            <a class="btn btn-outline-light wow fadeIn" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><span><?php echo esc_html( $link_title ); ?></span></a>
+                        <?php endif; ?>
+                    </section><!--col-->
+                    <section class="col-md-6">
+                        <div class="figure-wrapper mx-auto wow fadeIn" style="max-width: <?php echo $image['width']; ?>px;">
+                            <figure class="figure" style="padding-top: <?php echo $image['height']/$image['width']*100; ?>%;">
+                                <img class="img-contain" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" loading="lazy" />
+                            </figure>
+                        </div>
+                    </section><!--col-->
+                </section><!--row-->
+            </section><!--container-->
+        </section><!--section-->
+    <?php endwhile; ?>
+<?php endif; ?>
+
+
+<?php
+$image_bg = get_field('sezione_34_immagine_bg');
+if( have_rows('sezione_3') || have_rows('sezione_4') ): ?>
+    <section class="sections-wrapper">
+        <figure class="figure figure-bg">
+            <img class="img-cover" src="<?php echo esc_url($image_bg['url']); ?>" alt="<?php echo esc_attr($image_bg['alt']); ?>" />
+        </figure>
+        <?php while( have_rows('sezione_3') ): the_row(); 
+            $title = get_sub_field('titolo');
+            $text = get_sub_field('testo');
+            $link = get_sub_field('link');
+            $image = get_sub_field('immagine'); ?>
+            <section class="section" id="front_3">
+                <section class="container">
+                    <section class="row align-items-center gy-5">
+                        <section class="col-md-6 col-lg-5 mx-auto order-md-last">
+                            <h1 class="title wow fadeIn"><?php echo $title; ?></h1>
+                            <div class="text wow fadeIn"><?php echo $text; ?></div>
+                            <?php if( have_rows('info_repeater') ): ?>
+                                <ul class="info-table wow fadeIn">
+                                    <?php while( have_rows('info_repeater') ): the_row(); 
+                                        $icon = get_sub_field('immagine');
+                                        $label = get_sub_field('testo'); ?>
+                                        <li>
+                                            <?php if( !empty($icon) ): ?>
+                                                <figure class="figure">
+                                                    <img class="img-contain" src="<?php echo esc_url($icon['url']); ?>" alt="<?php echo esc_attr($icon['alt']); ?>" loading="lazy" />
+                                                </figure>
+                                            <?php endif; ?>
+                                            <span><?php echo $label; ?></span>
+                                        </li>
+                                    <?php endwhile; ?>
+                                </ul>
+                            <?php endif; ?>
+                            <?php 
+                            if( !empty($link) ): 
+                                $link_url = $link['url'];
+                                $link_title = $link['title'];
+                                $link_target = $link['target'] ? $link['target'] : '_self'; ?>
+                                <a class="btn btn-primary wow fadeIn" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><span><?php echo esc_html( $link_title ); ?></span></a>
+                            <?php endif; ?>
+                        </section><!--col-->
+                        <section class="col-md-6">
+                            <div class="figure-wrapper mx-auto wow fadeIn" style="max-width: <?php echo $image['width']; ?>px;">
+                                <figure class="figure" style="padding-top: <?php echo $image['height']/$image['width']*100; ?>%;">
+                                    <img class="img-contain" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" loading="lazy" />
+                                </figure>
+                            </div>
+                        </section><!--col-->
+                    </section><!--row-->
+                </section><!--container-->
+            </section><!--section-->
+        <?php endwhile; ?>
+        <?php while( have_rows('sezione_4') ): the_row(); 
+            $title = get_sub_field('titolo');
+            $text = get_sub_field('testo');
+            $link = get_sub_field('link');
+            $image = get_sub_field('immagine'); ?>
+            <section class="section pt-0" id="front_4">
+                <section class="container">
+                    <section class="row align-items-center gy-5">
+                        <section class="col-md-6 col-lg-5 mx-auto">
+                            <h1 class="title wow fadeIn"><?php echo $title; ?></h1>
+                            <div class="text wow fadeIn"><?php echo $text; ?></div>
+                            <?php 
+                            if( !empty($link) ): 
+                                $link_url = $link['url'];
+                                $link_title = $link['title'];
+                                $link_target = $link['target'] ? $link['target'] : '_self'; ?>
+                                <a class="btn btn-primary wow fadeIn" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><span><?php echo esc_html( $link_title ); ?></span></a>
+                            <?php endif; ?>
+                        </section><!--col-->
+                        <section class="col-md-6">
+                            <div class="figure-wrapper mx-auto wow fadeIn" style="max-width: <?php echo $image['width']; ?>px;">
+                                <figure class="figure" style="padding-top: <?php echo $image['height']/$image['width']*100; ?>%;">
+                                    <img class="img-contain" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" loading="lazy" />
+                                </figure>
+                            </div>
+                        </section><!--col-->
+                    </section><!--row-->
+                </section><!--container-->
+            </section><!--section-->
+        <?php endwhile; ?>
+    </section><!--sections-wrapper-->
+<?php endif; ?>
+
+<?php get_footer(); ?>
