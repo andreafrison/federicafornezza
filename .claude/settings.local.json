@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" -H \"Authorization: Basic YW5kcmVhZnJpc29uOlRCOFNlU0YyU2lZS3F2QUJBaFpaZVFJaQ==\" \"https://federicafornezza.it/wp-json/wp/v2/users/me\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"https://federicafornezza.it/wp-json/wp/v2/posts\")",
+      "Bash(curl -s -H \"Authorization: Basic YW5kcmVhZnJpc29uOlRCOFNlU0YyU2lZS3F2QUJBaFpaZVFJaQ==\" \"https://federicafornezza.it/wp-json/wp/v2/users/me\")",
+      "Bash(curl -s -u \"andreafrison:TB8SeSF2SiYKqvABAhZZeQIi\" \"https://federicafornezza.it/wp-json/wp/v2/users/me\")",
+      "Bash(curl -sv -u \"andreafrison:TB8SeSF2SiYKqvABAhZZeQIi\" \"https://federicafornezza.it/wp-json/wp/v2/users/me\")",
+      "Bash(python3 -m json.tool)"
+    ]
+  }
+}

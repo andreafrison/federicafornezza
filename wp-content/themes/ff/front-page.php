@@ -25,7 +25,7 @@
                         <?php endif; ?>
                     </div><!--col-->
                     <div class="col-md-6 col-lg-5 ms-auto align-self-end z-1">
-                        <h1 class="hero-title wow fadeIn"><?php echo esc_html($title); ?></h1>
+                        <h1 class="hero-title wow fadeIn"><?php echo wp_kses_post($title); ?></h1>
                         <div class="hero-text wow fadeIn"><?php echo wp_kses_post($text); ?></div>
                         <?php if( $link ):
                             $link_url    = $link['url'];
@@ -57,7 +57,7 @@
             <div class="container">
                 <div class="row align-items-center gy-5">
                     <div class="col-md-6 col-lg-5 mx-auto order-md-last">
-                        <h2 class="title wow fadeIn"><?php echo esc_html($title); ?></h2>
+                        <h2 class="title wow fadeIn"><?php echo wp_kses_post($title); ?></h2>
                         <div class="text wow fadeIn"><?php echo wp_kses_post($text); ?></div>
                         <?php if( $link ):
                             $link_url    = $link['url'];
@@ -98,7 +98,7 @@
             <div class="container">
                 <div class="row align-items-center gy-5">
                     <div class="col-md-6 col-lg-5 mx-auto">
-                        <h2 class="title wow fadeIn"><?php echo esc_html($title); ?></h2>
+                        <h2 class="title wow fadeIn"><?php echo wp_kses_post($title); ?></h2>
                         <div class="text wow fadeIn"><?php echo wp_kses_post($text); ?></div>
                         <?php if( $link ):
                             $link_url    = $link['url'];
@@ -141,7 +141,7 @@ if( have_rows('sezione_3') || have_rows('sezione_4') ): ?>
                 <div class="container">
                     <div class="row align-items-center gy-5">
                         <div class="col-md-6 col-lg-5 mx-auto order-md-last">
-                            <h2 class="title wow fadeIn"><?php echo esc_html($title); ?></h2>
+                            <h2 class="title wow fadeIn"><?php echo wp_kses_post($title); ?></h2>
                             <div class="text wow fadeIn"><?php echo wp_kses_post($text); ?></div>
                             <?php if( have_rows('info_repeater') ): ?>
                                 <ul class="info-table wow fadeIn">
@@ -154,7 +154,7 @@ if( have_rows('sezione_3') || have_rows('sezione_4') ): ?>
                                                     <img class="img-contain" src="<?php echo esc_url($icon['url']); ?>" alt="<?php echo esc_attr($icon['alt']); ?>" loading="lazy" />
                                                 </figure>
                                             <?php endif; ?>
-                                            <span><?php echo esc_html($label); ?></span>
+                                            <span><?php echo wp_kses_post($label); ?></span>
                                         </li>
                                     <?php endwhile; ?>
                                 </ul>
@@ -188,7 +188,7 @@ if( have_rows('sezione_3') || have_rows('sezione_4') ): ?>
                 <div class="container">
                     <div class="row align-items-center gy-5">
                         <div class="col-md-6 col-lg-5 mx-auto">
-                            <h2 class="title wow fadeIn"><?php echo esc_html($title); ?></h2>
+                            <h2 class="title wow fadeIn"><?php echo wp_kses_post($title); ?></h2>
                             <div class="text wow fadeIn"><?php echo wp_kses_post($text); ?></div>
                             <?php if( !empty($link) ):
                                 $link_url    = $link['url'];
