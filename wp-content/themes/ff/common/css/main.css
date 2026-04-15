@@ -63,8 +63,8 @@ h1, h2, h3 { text-rendering: optimizeLegibility; }
 
 /* -------- STILI PROGETTO ------- */
 :root {
-    --primary: #6769A6;
-    --primary-900: #50528b;
+    --primary: #fbc6ca;
+    --primary-900: #e7b5b8;
     --white: #ffffff;
     --black: #000000;
 
@@ -637,6 +637,10 @@ img[src=""] {
     .info-table:not(:has(.figure)) li + li {
         border-color: color-mix(in srgb, currentColor 12%, transparent);
     }
+}
+
+.info-table + .btn {
+    margin-top: 2rem;
 }
 
 

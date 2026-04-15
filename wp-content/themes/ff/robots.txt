@@ -1,7 +1,0 @@
-User-Agent: *
-Disallow: /wp-content/uploads/
-Disallow: /wp-content/plugins/
-Disallow: /wp-admin/
-Disallow: /*.pdf
- 
-//Sitemap: https://www.DOMINIO.com/sitemap_index.xml
